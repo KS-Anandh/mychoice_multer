@@ -31,7 +31,7 @@ const[productDesc,setProductDesc]=useState(null);
     }
 
     const sendToDB=async()=>{
-       await axios.post("http://localhost:9800/mychoice/product",fromData)
+       await axios.post("https://mychoice-multer.vercel.app/mychoice/product",fromData)
         .then((res)=>{
           console.log(res.data)
           navigate('/')

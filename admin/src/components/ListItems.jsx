@@ -7,7 +7,7 @@ const ListItems = () => {
   const [delay,setDelay]=useState(true);
   const[data,setData]=useState([])
   useEffect(()=>{
-     axios.get("http://localhost:9800/mychoice/products")
+     axios.get("https://mychoice-multer.vercel.app/mychoice/products")
      .then((res)=>{
       setData(res.data)
       setDelay(false)
@@ -18,7 +18,7 @@ const ListItems = () => {
   },[])
 
   const removeProduct=(id)=>{
-    axios.delete(`http://localhost:9800/mychoice/product/id/${id}`)
+    axios.delete(`https://mychoice-multer.vercel.app/mychoice/product/id/${id}`)
     .then((res)=>{
       console.log(res.data)
       const remaining=data.filter((item)=>{
@@ -38,7 +38,7 @@ const ListItems = () => {
           {
             data.map((item ,id)=>{
               return <div className='item' key={id}>
-              <p><img src={`http://localhost:9800/Images/${item.productImg}`} width={80} height={80}/></p>
+              <p><img src={`https://mychoice-multer.vercel.app/Images/${item.productImg}`} width={80} height={80}/></p>
               <p>{item.productName}</p>
               <p>{item.productCategory}</p>
               <p>{item.productPrice}</p>
