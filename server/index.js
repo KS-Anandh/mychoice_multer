@@ -5,11 +5,15 @@ import productRoute from './routes/productRoute.js'
 import userRoute from './routes/userRoute.js'
 import orderRoute from './routes/orders.js'
 import compression from 'compression'
+import path from 'path'
+import { fileURLToPath } from 'url';
 const app=express()
 app.use(express.static("public"))
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use('/files', express.static(path.join(__dirname, 'public')));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));// limit for passing Base-64 Object of Image to MongoDB from Json Body
-
 app.use(compression());
 
 app.use(cors())

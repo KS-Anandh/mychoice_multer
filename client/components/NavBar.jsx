@@ -32,7 +32,7 @@ const NavBar = ({user,setUser,userInfo,nav,setNav}) => {
             Close();
         }
         else{
-            axios.get(`https://mychoice-multer.vercel.app/mychoice/users/${mail}`)
+            axios.get(`http://localhost:9800/mychoice/users/${mail}`)
             .then((res)=>{
                 if(res.data){
                     Close()
@@ -66,7 +66,7 @@ const NavBar = ({user,setUser,userInfo,nav,setNav}) => {
             var index=userName.indexOf("@");
             var domine=userName.slice(index+1,userName.length);
             if(domine==="gmail.com"){
-                axios.post("https://mychoice-multer.vercel.app/mychoice/users/",{userName,password})
+                axios.post("http://localhost:9800/mychoice/users/",{userName,password})
                 .then((res)=>{
                     alert(res.data)
                 })

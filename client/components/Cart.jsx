@@ -9,7 +9,7 @@ const Cart = ({data,user,setData,setChange,nav,setNav}) => {
         amount=amount+item.productPrice;
      })
      const removeCart=(cart)=>{
-          axios.post(`https://mychoice-multer.vercel.app/mychoice/users/carts/remove/${user}`,{carts:cart})
+          axios.post(`http://localhost:9800/mychoice/users/carts/remove/${user}`,{carts:cart})
           .then((res)=>{
             alert("Item Removed Successfully");
             const carts= data.filter((item)=>{
@@ -47,7 +47,7 @@ const Cart = ({data,user,setData,setChange,nav,setNav}) => {
                 data.map((item,id)=>{
                       return(
                         <tr key={id}>
-                        <td><img className='table-item-img' src={`https://mychoice-multer.vercel.app/Images/${item.productImg}`}/></td>
+                        <td><img className='table-item-img' src={`http://localhost:9800/Images/${item.productImg}`}/></td>
                         <td>{item.productName}</td>
                         <td>{item.productPrice}</td>
                         <td>1</td>

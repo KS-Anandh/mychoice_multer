@@ -7,7 +7,7 @@ import { useParams,Link } from 'react-router-dom'
 const Update = () => {
   const [data,setData]=useState({});
   useEffect(()=>{
-    axios.get(`https://mychoice-multer.vercel.app/mychoice/product/id/${id}`)
+    axios.get(`http://localhost:9800/mychoice/product/id/${id}`)
    .then((res)=>{
        setData(res.data)
        console.log(res.data)
@@ -23,7 +23,7 @@ const Update = () => {
     const[productRating,setProductRating]=useState(data.productRating);
     const[productDesc,setProductDesc]=useState(data.productDesc);
     const sendToDB=async()=>{
-       await axios.put(`https://mychoice-multer.vercel.app/mychoice/product/id/${id}`,{productName,productCategory,productPrice,productRating,productDesc})
+       await axios.put(`http://localhost:9800/mychoice/product/id/${id}`,{productName,productCategory,productPrice,productRating,productDesc})
         .then((res)=>{
           console.log(res.data)
         })
